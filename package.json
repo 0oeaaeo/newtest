@@ -1,0 +1,26 @@
+{
+  "author": "graveflex",
+  "dependencies": {
+    "@shopify/app": "^3.45.0",
+    "@shopify/cli": "^3.45.0"
+  },
+  "license": "UNLICENSED",
+  "name": "api",
+  "scripts": {
+    "build": "shopify app build",
+    "deploy": "shopify app deploy",
+    "dev": "export $(grep -e '^API_PORT' -- ../../.env.local) && rails s --no-daemon -p $API_PORT",
+    "dev:log-out": "export $(grep -e '^API_PORT' -- ../../.env.local) && export $(grep -e '^NEXT_PUBLIC_API_URL' -- ../../.env.local) && shopify app dev --tunnel-url ${NEXT_PUBLIC_API_URL}/admin:${API_PORT} 2>&1 > log.txt",
+    "devw": "export $(grep -e '^API_PORT' -- ../../.env.local) && export $(grep -e '^NEXT_PUBLIC_API_URL' -- ../../.env.local) && shopify app dev --tunnel-url ${NEXT_PUBLIC_API_URL}:${API_PORT}",
+    "devw:log-out": "export $(grep -e '^API_PORT' -- ../../.env.local) && export $(grep -e '^NEXT_PUBLIC_API_URL' -- ../../.env.local) && shopify app dev --tunnel-url ${NEXT_PUBLIC_API_URL}:${API_PORT} 2>&1 > log.txt",
+    "generate": "shopify app generate",
+    "generate:graphQLSchema": "rake graphql:dump",
+    "info": "shopify app info",
+    "lint": "bundle exec -- rubocop --parallel",
+    "push": "shopify app push",
+    "shopify": "shopify",
+    "tc": "srb tc",
+    "test": "bundle exec -- rspec"
+  },
+  "version": "1.0.1"
+}

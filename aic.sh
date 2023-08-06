@@ -15,7 +15,7 @@ data=$(jq -n \
       {"role":"user", "content":$diff}
       ],
       max_tokens: 600,
-      model: gpt-4
+      model: "gpt-4"
     }'
 )
 
@@ -23,8 +23,8 @@ data=$(jq -n \
 message=$(curl https://api.openai.com/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "Authorization: Bearer $API_KEY" \
-  -d "$data" |
-  jq -r '.choices[0].text' | tr '\n' ' ')
+  -d "$data" -s |
+  jq -r '.choices[0].message.content' | tr '\n' ' ')
 
 # Display the commit message and ask for confirmation
 echo -e "\nThe proposed commit message is:\n$message"
