@@ -23,8 +23,8 @@ data=$(jq -n \
 message=$(curl https://api.openai.com/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "Authorization: Bearer $API_KEY" \
-  -d "$data" -s |
-  jq -r '.choices[0].message.content' | tr '\n' ' ')
+  -d "$data" )
+#  jq -r '.choices[0].message.content' | tr '\n' ' ')
 
 # Display the commit message and ask for confirmation
 echo -e "\nThe proposed commit message is:\n$message"
