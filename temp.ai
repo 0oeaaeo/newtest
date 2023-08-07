@@ -1,0 +1,1 @@
+{ "messages": [ { "role": "system", "content": "I need you to make me a relevent and thorough but concise git commit for the following diff." }, { "role": "user", "content": "" } ], "max_tokens": 600, "model": "gpt-4" }

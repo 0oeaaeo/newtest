@@ -7,18 +7,11 @@ DIFF=$(git diff --staged)
 API_KEY='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'
 
 #JQ FOR PREP
-data=$(jq -n \
-    --arg diff "$DIFF" \
-    '{
-      messages: [ 
-      {"role":"system", "content":"I need you to make me a relevent and thorough but concise git commit for the following diff."},
-      {"role":"user", "content":$diff}
-      ],
-      max_tokens: 600,
-      model: "gpt-4"
-    }'
-)
-
+#data=$(jq -n \
+#    --arg diff "$DIFF" \
+#    '{
+#      messages: [ 
+      
 # THE SAUCE
 message=$(curl https://api.openai.com/v1/chat/completions \
   -H "Content-Type: application/json" \
