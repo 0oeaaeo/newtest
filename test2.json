@@ -5,10 +5,10 @@
     "@shopify/cli": "^3.45.0"
   },
   "license": "UNLICENSED",
-  "name": "api",
-  "scripts": {
-    "build": "shopify app build",
-    "deploy": "shopify app deploy",
+#  "name": "api",
+#  "scripts": {
+#    "build": "shopify app build",
+#    "deploy": "shopify app deploy",
     "dev": "export $(grep -e '^API_PORT' -- ../../.env.local) && rails s --no-daemon -p $API_PORT",
     "dev:log-out": "export $(grep -e '^API_PORT' -- ../../.env.local) && export $(grep -e '^NEXT_PUBLIC_API_URL' -- ../../.env.local) && shopify app dev --tunnel-url 
 ${NEXT$
