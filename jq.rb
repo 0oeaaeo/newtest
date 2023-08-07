@@ -1,7 +1,3 @@
-# frozen_string_literal: true
-
-Kernel.require("json")
-Kernel.require("open3")
 
 module JQ
   def self.jq(*args, json: true, stdin_data: nil, **kwargs)
